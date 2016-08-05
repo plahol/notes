@@ -1,0 +1,15 @@
+# General ideas
+
+The user opens the app
+The app reopens every note and displays them according to urgency
+The note should display when it was last changed
+The user can add a new note 
+The user can edit a note
+The note is comprised of text (images, other files)
+The user can format text
+The user can mark a note as done
+The user can search for content
+The app syncs between devices
+The app adhers to each platform's design guidelines 
+The app looks pretty (tough)
+

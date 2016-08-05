@@ -1,9 +1,0 @@
-# General ideas
-
-
-making notes
-work on Linux, Windows, (Android)
-adher to respective platform's design guidelines
-look pretty
-able to sync
-
