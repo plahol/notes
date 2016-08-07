@@ -13,3 +13,13 @@ The app syncs between devices
 The app adhers to each platform's design guidelines 
 The app looks pretty (tough)
 
+
+Class structure backend:
+
+class Note
+    text
+    open()
+    save()
+    
+    
+
