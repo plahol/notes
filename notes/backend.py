@@ -57,10 +57,14 @@ class Backend(object):
         pinned_string = " ".join(self.pinned)
         normal_string = " ".join(self.normal)
         with open("note_order.note", "r+") as note_order:
+            # see if you can get this line under 80 columns
             test = "pinned notes = \n%s\nnormal_notes = \n%s" % (pinned_string, normal_string) 
             note_order.write(test)             
                                                
     def add_note(self, file_name):
+        # file_name should be determined in the function 
+        # and handled internally
+        # it shouldn't come from a parameter
         self.normal.append(file_name)
         self.normal_notes.append(Note(file_name, False))
         self.save_note_order()
