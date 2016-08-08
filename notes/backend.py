@@ -1,9 +1,10 @@
 class Note(object):
     
-    def __init__(self, file_name):
-        self.file = open("file_name" + ".note", "a+")
-        self.title = self.file.readline()
-        self.file.write(title + "\n")
+    def __init__(self, file_name, existence):
+        if existence == True:
+            self.file = open("file_name" + ".note", "r+")
+        else:
+            self.file = open("file_name" + ".note", "w+")
         
     def read(self):
         print(self.file.tell())
