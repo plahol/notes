@@ -75,7 +75,6 @@ class Backend(object):
         normal_string = " ".join(self.normal_names)
                 
         with open("note_order.note", "w") as note_order:
-            # see if you can get this line under 80 columns
             string = """\
                       pinned notes = 
                       %s
