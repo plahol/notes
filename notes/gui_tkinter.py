@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter.scrolledtext import ScrolledText
 
 class Gui(object):
     
@@ -11,7 +12,6 @@ class Gui(object):
         self.editor.grid(row=0, column=1)
         
     
-
 class Selector(tk.Frame):
     
     def __init__(self, parent):
@@ -21,6 +21,9 @@ class Selector(tk.Frame):
         pass
         
     def textfield(self):
+        pass
+        
+    def scrollbar(self):
         pass
     
 class Editor(tk.Frame):
@@ -33,5 +36,3 @@ class Editor(tk.Frame):
         
     def textfield(self):
         pass
-        
-        
