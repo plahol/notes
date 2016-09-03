@@ -150,40 +150,43 @@ class Backend(object):
         
     def display(self):
         self.save_note_order()
-        print(self.normal)
-                        
-"""note = Note("test", False)
-print(note.read())
-note.write_title("title")
-print(note.read())
-note.write_content("content")
-print(note.read())
-note.write_title("new title")
-print(note.read())
-note.write_content("new content\nnew content second line")
-print(note.read())
-note.write_content("")"""
+        print(self.normal_names)
+        return self.normal_names
 
 
-backend = Backend()
-for i in range(0, 3):
-    backend.add_note(True)
-    a = []
-"""backend.change_order("0", 2)
-backend.change_order("0", 1)
-backend.change_order("1", 1)"""
+if __name__ == "__main__":                        
+    """note = Note("test", False)
+    print(note.read())
+    note.write_title("title")
+    print(note.read())
+    note.write_content("content")
+    print(note.read())
+    note.write_title("new title")
+    print(note.read())
+    note.write_content("new content\nnew content second line")
+    print(note.read())
+    note.write_content("")"""
 
-#print(backend.read_note("0"))
-"""backend.write_note_title("0", "newtitle")
-backend.write_note_content("0", "content")
-backend.write_note_title("0", "")
-backend.write_note_content("0", "")
-"""
 
-backend.unpin_note("0")
-backend.add_note(False)
-backend.pin_note("3")
-print(backend.read_note("0"))
+    backend = Backend()
+    for i in range(0, 3):
+        backend.add_note(pinned=True)
+        a = []
+    """backend.change_order("0", 2)
+    backend.change_order("0", 1)
+    backend.change_order("1", 1)"""
+
+    #print(backend.read_note("0"))
+    """backend.write_note_title("0", "newtitle")
+    backend.write_note_content("0", "content")
+    backend.write_note_title("0", "")
+    backend.write_note_content("0", "")
+    """
+
+    backend.unpin_note("0")
+    backend.add_note(pinned=False)
+    backend.pin_note("3")
+    print(backend.read_note("0"))
 
 
 
