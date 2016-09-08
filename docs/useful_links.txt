@@ -1,0 +1,6 @@
+General: 
+http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html
+http://effbot.org/tkinterbook/
+
+Regarding cget and winfo
+http://tcltk.free.fr/tcltkfaq.php3?idxquery=157
