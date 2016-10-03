@@ -33,6 +33,7 @@ class Selector(tk.Frame):
         self.columnconfigure(0, weight=1)
         card2 = Card(self, 0, 100, 100)
         card2.grid(row=2, column=0, sticky=tk.N+tk.S+tk.E+tk.W)
+        self.rowconfigure(3, weight=1)
         card3 = Card(self, 1, 100, 100)
         card3.grid(row=3, column=0, sticky=tk.N+tk.S+tk.E+tk.W)
 
@@ -70,13 +71,13 @@ class Card(tk.Canvas):
         
         self.note_name = note_name
         
-        self.x = tk.PhotoImage(file="button.gif")
+        self.icon_close = tk.PhotoImage(file="button.gif")
         self.remove_note = tk.Button(self,
-                                     image=self.x,
+                                     image=self.icon_close,
                                      width=40, height=40)
         
         self.pin_note = tk.Button(self,
-                                  image=self.x,
+                                  image=self.icon_close,
                                   width=40, height=40)
         self.window_remove = self.create_window((width, 0),
                                                 window=self.remove_note,
