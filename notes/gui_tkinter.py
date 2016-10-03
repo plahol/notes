@@ -33,7 +33,9 @@ class Selector(tk.Frame):
         self.columnconfigure(0, weight=1)
         card2 = Card(self, 0, 100, 100)
         card2.grid(row=2, column=0, sticky=tk.N+tk.S+tk.E+tk.W)
-        
+        card3 = Card(self, 1, 100, 100)
+        card3.grid(row=3, column=0, sticky=tk.N+tk.S+tk.E+tk.W)
+
         
     def toolbar(self):
         add_note = tk.Button(self, text="Add Note")
@@ -72,22 +74,25 @@ class Card(tk.Canvas):
         self.remove_note = tk.Button(self,
                                      image=self.x,
                                      width=40, height=40)
-        """self.button = self.create_window((self.winfo_reqwidth(), 0), 
-                                         anchor=tk.NE, 
-                                         window=remove_note)"""
-                                         
-        self.remove_note.place(x=self.winfo_width(), 
-                               y=0,
-                               anchor=tk.NE)
         
-        text = "This is the first line\nSecond Line\nThird Line"           
-        width = self.winfo_width() - self.remove_note.cget("width")
+        self.pin_note = tk.Button(self,
+                                  image=self.x,
+                                  width=40, height=40)
+        self.window_remove = self.create_window((width, 0),
+                                                window=self.remove_note,
+                                                anchor=tk.NE)
+        self.window_pin = self.create_window((width, 40),
+                                             window=self.pin_note,
+                                             anchor=tk.NE)    
+        self.preview_text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        preview_width = width - 40
         #for whatever reason self.cget("width") is a String
         #whereas             remove_note.cget("width") is an Int
         self.preview = self.create_text((0,0), 
-                                        text=text,
+                                        text=self.preview_text,
                                         anchor=tk.NW,
-                                        width=width)
+                                        width=preview_width)
+
 
     def select(self, event):
         if self.cget("background") == "grey":
@@ -96,13 +101,15 @@ class Card(tk.Canvas):
             self.config(background="grey")
     
     def on_resize(self, event):
-        #print(self.cget("width"), self.cget("height"))
-        #print(self.winfo_width(), self.winfo_height())
-        
-        self.remove_note.place(x=self.winfo_width(), anchor=tk.NE)
-        width = self.winfo_width() - self.remove_note.cget("width")
-        self.itemconfig(self.preview, width=width)
-        
+        self.create_window((self.winfo_width(), 0),
+                           window=self.remove_note,
+                           anchor=tk.NE)
+        self.create_window((self.winfo_width(), 40),
+                           window=self.pin_note,
+                           anchor=tk.NE)
+        preview_width = self.winfo_width() - 40 
+        self.itemconfig(self.preview, 
+                        width=preview_width)
 
 class CardFrame(tk.Frame):
 
